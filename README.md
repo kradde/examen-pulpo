@@ -54,5 +54,7 @@ docker exec -it examen-pulpo-backend-1 npm run migration:run
 Para consultar la documentación swagger sera a través de:
 
 -   [http://localhost:3000/api](http://localhost:3000/api)
-    El frontend estará visible en:
+
+El frontend estará visible en:
+
 -   [http://localhost:4200](http://localhost:4200)
