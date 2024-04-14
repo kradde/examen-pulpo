@@ -1,0 +1,17 @@
+version: '3'
+services:
+    db:
+        image: postgres
+        environment:
+            POSTGRES_PASSWORD: 1234
+            POSTGRES_DB: examen_pulpo
+    backend:
+        build: ./backend
+        ports:
+            - 3000:3000
+        depends_on:
+            - db
+    frontend:
+        build: ./frontend
+        ports:
+            - 4200:4200
