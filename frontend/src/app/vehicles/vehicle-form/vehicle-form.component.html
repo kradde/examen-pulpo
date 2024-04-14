@@ -1,0 +1,185 @@
+<div *ngIf="isUpdating; else newVehicle">
+    <p class="text-base font-normal lg:text-lg text-gray-400 pb-8">
+        Actualiza los datos del vehículo existente. Al guardar, los cambios se
+        reflejarán en los detalles del vehículo.
+    </p>
+</div>
+<ng-template #newVehicle>
+    <p class="text-base font-normal lg:text-lg text-gray-400 pb-8">
+        Completa los datos para agregar un nuevo vehículo. Una vez guardado,
+        podrás ver y editar los detalles del vehículo.
+    </p>
+</ng-template>
+<form class="max-w-sm" #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <div class="mb-5">
+        <label for="name" class="block mb-2 text-sm font-medium text-white"
+            >Nombre <abbr title="Dato requerido">*</abbr></label
+        >
+        <input
+            type="text"
+            id="name"
+            name="name"
+            #name="ngModel"
+            [(ngModel)]="vehicle.name"
+            class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700"
+            [ngClass]="{
+                'border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500':
+                    !(name.invalid && (name.touched || f.submitted)),
+                'focus:ring-red-500 focus:border-red-500 text-red-500 placeholder-red-500 border-red-500':
+                    name.invalid && (name.touched || f.submitted)
+            }"
+            placeholder="Nombre del vehículo"
+            required
+        />
+        <p
+            *ngIf="name.invalid && (name.touched || f.submitted)"
+            class="mt-2 text-sm text-red-500"
+        >
+            <span class="font-medium">Ups!</span> Este dato es requerido
+        </p>
+    </div>
+    <div class="mb-5">
+        <label for="plate" class="block mb-2 text-sm font-medium text-white"
+            >Placas <abbr title="Dato requerido">*</abbr></label
+        >
+        <input
+            type="text"
+            id="plate"
+            name="plate"
+            #plate="ngModel"
+            [(ngModel)]="vehicle.plate"
+            class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700"
+            [ngClass]="{
+                'border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500':
+                    !(plate.invalid && (plate.touched || f.submitted)),
+                'focus:ring-red-500 focus:border-red-500 text-red-500 placeholder-red-500 border-red-500':
+                    plate.invalid && (plate.touched || f.submitted)
+            }"
+            required
+        />
+        <p
+            *ngIf="plate.invalid && (plate.touched || f.submitted)"
+            class="mt-2 text-sm text-red-500"
+        >
+            <span class="font-medium">Ups!</span> Este dato es requerido
+        </p>
+    </div>
+    <div class="mb-5">
+        <label for="vin" class="block mb-2 text-sm font-medium text-white"
+            >VIN <abbr title="Dato requerido">*</abbr></label
+        >
+        <input
+            type="text"
+            id="vin"
+            name="vin"
+            #vin="ngModel"
+            [(ngModel)]="vehicle.vin"
+            class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700"
+            [ngClass]="{
+                'border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500':
+                    !(vin.invalid && (vin.touched || f.submitted)),
+                'focus:ring-red-500 focus:border-red-500 text-red-500 placeholder-red-500 border-red-500':
+                    vin.invalid && (vin.touched || f.submitted)
+            }"
+            required
+        />
+        <p
+            *ngIf="vin.invalid && (vin.touched || f.submitted)"
+            class="mt-2 text-sm text-red-500"
+        >
+            <span class="font-medium">Ups!</span> Este dato es requerido
+        </p>
+    </div>
+    <div class="mb-5">
+        <label
+            for="serialNumber"
+            class="block mb-2 text-sm font-medium text-white"
+            >Numero de serie <abbr title="Dato requerido">*</abbr></label
+        >
+        <input
+            type="text"
+            id="serialNumber"
+            name="serialNumber"
+            #serialNumber="ngModel"
+            [(ngModel)]="vehicle.serialNumber"
+            class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700"
+            [ngClass]="{
+                'border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500':
+                    !(
+                        serialNumber.invalid &&
+                        (serialNumber.touched || f.submitted)
+                    ),
+                'focus:ring-red-500 focus:border-red-500 text-red-500 placeholder-red-500 border-red-500':
+                    serialNumber.invalid &&
+                    (serialNumber.touched || f.submitted)
+            }"
+            required
+        />
+        <p
+            *ngIf="
+                serialNumber.invalid && (serialNumber.touched || f.submitted)
+            "
+            class="mt-2 text-sm text-red-500"
+        >
+            <span class="font-medium">Ups!</span> Este dato es requerido
+        </p>
+    </div>
+    <div class="mb-5">
+        <label for="createdBy" class="block mb-2 text-sm font-medium text-white"
+            >Creado por <abbr title="Dato requerido">*</abbr></label
+        >
+        <input
+            type="text"
+            id="createdBy"
+            name="createdBy"
+            #createdBy="ngModel"
+            [(ngModel)]="vehicle.createdBy"
+            class="border text-sm rounded-lg block w-full p-2.5 bg-gray-700"
+            [ngClass]="{
+                'border-gray-600 placeholder-gray-400 text-white focus:ring-blue-500 focus:border-blue-500':
+                    !(createdBy.invalid && (createdBy.touched || f.submitted)),
+                'focus:ring-red-500 focus:border-red-500 text-red-500 placeholder-red-500 border-red-500':
+                    createdBy.invalid && (createdBy.touched || f.submitted)
+            }"
+            required
+        />
+        <p
+            *ngIf="createdBy.invalid && (createdBy.touched || f.submitted)"
+            class="mt-2 text-sm text-red-500"
+        >
+            <span class="font-medium">Ups!</span> Este dato es requerido
+        </p>
+    </div>
+    <div class="flex justify-between">
+        <a
+            class="relative inline-flex items-center justify-center p-0.5 mb-2 overflow-hidden text-sm font-medium rounded-lg group bg-gradient-to-br from-green-400 to-blue-600 group-hover:from-green-400 group-hover:to-blue-600 hover:text-white text-white focus:ring-4 focus:outline-none focus:ring-green-800"
+            routerLink="/vehicles"
+            ><span
+                class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-gray-900 rounded-md group-hover:bg-opacity-0 items-center inline-flex"
+            >
+                <svg
+                    class="rotate-180 w-3.5 h-3.5 me-2"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 14 10"
+                >
+                    <path
+                        stroke="currentColor"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M1 5h12m0 0L9 1m4 4L9 9"
+                    />
+                </svg>
+                Volver
+            </span>
+        </a>
+        <button
+            type="submit"
+            class="text-white bg-gradient-to-br from-green-400 to-blue-600 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+        >
+            Guardar vehículo
+        </button>
+    </div>
+</form>
